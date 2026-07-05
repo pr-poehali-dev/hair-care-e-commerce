@@ -10,37 +10,27 @@ const NAV = [
   { id: 'contacts', label: 'Контакты' },
 ];
 
+const CATEGORIES = [
+  { id: 'all', label: 'Всё', icon: 'LayoutGrid' },
+  { id: 'gel', label: 'Гели', icon: 'Droplets' },
+  { id: 'shampoo', label: 'Шампуни', icon: 'SprayCan' },
+  { id: 'parfum', label: 'Духи', icon: 'Wind' },
+  { id: 'cosmetics', label: 'Косметика', icon: 'Sparkles' },
+];
+
+const IMG_PINK = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/af0ffa0a-223a-4d3d-829d-5a7dc8990f7b.jpg';
+const IMG_ORANGE = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/561433f4-f408-45a7-8f96-66054bb3609b.jpg';
+const IMG_RED = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/fdbc5ca2-c70b-4538-977b-3dbbbefc86df.jpg';
+
 const PRODUCTS = [
-  {
-    id: 1,
-    name: 'Гель для душа',
-    tag: 'Древесный аромат',
-    price: '790 ₽',
-    color: '#FF2D78',
-    img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/af0ffa0a-223a-4d3d-829d-5a7dc8990f7b.jpg',
-    rating: 4.9,
-    reviews: 214,
-  },
-  {
-    id: 2,
-    name: 'Шампунь освежающий',
-    tag: 'Аромат эвкалипта',
-    price: '890 ₽',
-    color: '#FF5A1F',
-    img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/561433f4-f408-45a7-8f96-66054bb3609b.jpg',
-    rating: 4.8,
-    reviews: 168,
-  },
-  {
-    id: 3,
-    name: 'Шампунь контроль объёма',
-    tag: 'Аромат одеколона · 500ml',
-    price: '990 ₽',
-    color: '#E11D2A',
-    img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/fdbc5ca2-c70b-4538-977b-3dbbbefc86df.jpg',
-    rating: 5.0,
-    reviews: 302,
-  },
+  { id: 1, cat: 'gel', name: 'Гель для душа', tag: 'Древесный аромат', price: '790 ₽', color: '#FF2D78', img: IMG_PINK, rating: 4.9, reviews: 214 },
+  { id: 2, cat: 'gel', name: 'Гель 2в1 спорт', tag: 'Мятная свежесть', price: '740 ₽', color: '#FF2D78', img: IMG_ORANGE, rating: 4.7, reviews: 96 },
+  { id: 3, cat: 'shampoo', name: 'Шампунь освежающий', tag: 'Аромат эвкалипта', price: '890 ₽', color: '#FF5A1F', img: IMG_ORANGE, rating: 4.8, reviews: 168 },
+  { id: 4, cat: 'shampoo', name: 'Шампунь контроль объёма', tag: 'Аромат одеколона · 500ml', price: '990 ₽', color: '#E11D2A', img: IMG_RED, rating: 5.0, reviews: 302 },
+  { id: 5, cat: 'parfum', name: 'Парфюм STEEL', tag: 'Дерево · кожа · перец', price: '2 490 ₽', color: '#E11D2A', img: IMG_RED, rating: 4.9, reviews: 87 },
+  { id: 6, cat: 'parfum', name: 'Парфюм NEON', tag: 'Цитрус · мускус', price: '2 290 ₽', color: '#FF2D78', img: IMG_PINK, rating: 4.8, reviews: 64 },
+  { id: 7, cat: 'cosmetics', name: 'Крем после бритья', tag: 'Успокаивающий уход', price: '690 ₽', color: '#FF5A1F', img: IMG_ORANGE, rating: 4.7, reviews: 143 },
+  { id: 8, cat: 'cosmetics', name: 'Воск для волос', tag: 'Матовая фиксация', price: '650 ₽', color: '#FF2D78', img: IMG_PINK, rating: 4.9, reviews: 211 },
 ];
 
 const REVIEWS = [
@@ -73,6 +63,9 @@ const Logo = ({ className = '' }: { className?: string }) => (
 const Index = () => {
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cat, setCat] = useState('all');
+
+  const filtered = cat === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.cat === cat);
 
   const go = (id: string) => {
     setActive(id);
@@ -190,11 +183,31 @@ const Index = () => {
           </div>
           <span className="hidden md:block text-8xl font-display font-bold text-stroke select-none leading-none">M</span>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PRODUCTS.map((p) => (
+
+        {/* category tabs */}
+        <div className="flex flex-wrap gap-3 mb-12">
+          {CATEGORIES.map((c) => (
+            <button
+              key={c.id}
+              onClick={() => setCat(c.id)}
+              className={`inline-flex items-center gap-2 px-5 h-11 border font-display uppercase text-sm tracking-wider transition-all ${
+                cat === c.id
+                  ? 'bg-brand-pink border-brand-pink text-white'
+                  : 'border-border text-foreground/70 hover:border-brand-pink hover:text-foreground'
+              }`}
+            >
+              <Icon name={c.icon} size={16} />
+              {c.label}
+            </button>
+          ))}
+        </div>
+
+        <div key={cat} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((p, i) => (
             <article
               key={p.id}
-              className="group relative border border-border bg-card overflow-hidden transition-all hover:border-brand-pink"
+              style={{ animationDelay: `${i * 0.05}s` }}
+              className="group relative border border-border bg-card overflow-hidden transition-all hover:border-brand-pink animate-fade-in"
             >
               <div className="relative aspect-square overflow-hidden">
                 <div
