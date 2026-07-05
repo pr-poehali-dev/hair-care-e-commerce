@@ -231,18 +231,22 @@ const Index = () => {
               style={{ animationDelay: `${i * 0.05}s` }}
               className="group relative border border-border bg-card overflow-hidden transition-all hover:border-brand-pink animate-fade-in"
             >
-              <div className="relative aspect-square overflow-hidden">
+              <div className="relative aspect-square overflow-hidden bg-black">
                 <img
                   src={p.bg}
                   alt=""
-                  className="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                 <img
                   src={p.img}
                   alt={p.name}
-                  className="relative w-full h-full object-contain p-8 drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] transition-transform duration-500 group-hover:scale-110"
+                  style={{
+                    maskImage: 'radial-gradient(ellipse 30% 62% at 50% 55%, black 42%, transparent 74%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 30% 62% at 50% 55%, black 42%, transparent 74%)',
+                  }}
+                  className="relative w-full h-full object-cover scale-[1.9] transition-transform duration-500 group-hover:scale-[2.05]"
                 />
+                <div className="absolute inset-0 shadow-[inset_0_0_70px_30px_rgba(0,0,0,0.55)] pointer-events-none" />
               </div>
               <div className="p-6 border-t border-border">
                 <div className="flex items-center justify-between mb-2">
