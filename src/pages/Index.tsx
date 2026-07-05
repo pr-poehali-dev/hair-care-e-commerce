@@ -60,6 +60,16 @@ const Logo = ({ className = '' }: { className?: string }) => (
   </span>
 );
 
+const LogoMark = ({ size = 44 }: { size?: number }) => (
+  <div
+    className="relative flex items-center justify-center bg-foreground text-background font-display font-bold select-none shrink-0"
+    style={{ width: size, height: size, fontSize: size * 0.42 }}
+  >
+    <span className="relative z-10 tracking-tighter">NM</span>
+    <span className="absolute inset-0 border border-brand-pink" style={{ transform: 'translate(4px,4px)' }} />
+  </div>
+);
+
 const Index = () => {
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
@@ -78,8 +88,9 @@ const Index = () => {
       {/* HEADER */}
       <header className="fixed top-0 inset-x-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
         <div className="container flex items-center justify-between h-16">
-          <button onClick={() => go('home')}>
-            <Logo className="text-2xl" />
+          <button onClick={() => go('home')} className="flex items-center gap-3">
+            <LogoMark size={38} />
+            <Logo className="text-2xl hidden sm:inline" />
           </button>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((n) => (
@@ -121,7 +132,8 @@ const Index = () => {
         <div className="container relative py-20 md:py-28">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="animate-fade-in">
-              <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-brand-pink/50 rounded-full text-brand-pink text-xs font-display uppercase tracking-widest">
+              <LogoMark size={64} />
+              <div className="inline-flex items-center gap-2 px-3 py-1 mt-6 mb-6 border border-brand-pink/50 rounded-full text-brand-pink text-xs font-display uppercase tracking-widest">
                 <span className="w-2 h-2 rounded-full bg-brand-pink animate-pulse" /> Personal Care Series
               </div>
               <h1 className="font-display font-bold uppercase leading-[0.92] text-5xl sm:text-6xl md:text-7xl">
