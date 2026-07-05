@@ -18,19 +18,29 @@ const CATEGORIES = [
   { id: 'cosmetics', label: 'Косметика', icon: 'Sparkles' },
 ];
 
-const IMG_PINK = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/af0ffa0a-223a-4d3d-829d-5a7dc8990f7b.jpg';
-const IMG_ORANGE = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/561433f4-f408-45a7-8f96-66054bb3609b.jpg';
-const IMG_RED = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/fdbc5ca2-c70b-4538-977b-3dbbbefc86df.jpg';
+const IMG_GEL_PINK = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/106b79e9-0d70-4873-8b19-fd689ed78c50.jpeg';
+const IMG_GEL_ORANGE = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/b5086509-c984-464c-879b-4dddc949031d.jpeg';
+const IMG_LOTION_PURPLE = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/0d31a8bf-29f0-458c-91ca-a6d5a4263fcc.jpeg';
+const IMG_BARREL_ORANGE = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/61001e69-ac55-4cc4-935d-44d6e2ce294b.jpeg';
+
+const BG_WOOD = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/125bcdad-7d0a-4adb-83fc-38bd632c192d.jpg';
+const BG_MINT = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/b01b5ee1-0a48-4585-bce1-4335aea98507.jpg';
+const BG_EUCALYPTUS = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/54a463ee-783c-4b64-b37b-3c66c7fa6a07.jpg';
+const BG_AMBER = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/16c2ac53-72c8-4481-91dd-0d13e2063933.jpg';
+const BG_LEATHER = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/095b8a22-61f8-4e78-a51f-716c4bbe339d.jpg';
+const BG_CITRUS = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/351e758f-1eb5-400f-8ad7-90b1bbee226e.jpg';
+const BG_CALM = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/a18127c2-7e99-4763-ba6e-d68d01ce7d31.jpg';
+const BG_WAX = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/0a55405f-8c30-4e19-b505-5adbbf6983c7.jpg';
 
 const PRODUCTS = [
-  { id: 1, cat: 'gel', name: 'Гель для душа', tag: 'Древесный аромат', price: '790 ₽', color: '#FF2D78', img: IMG_PINK, rating: 4.9, reviews: 214 },
-  { id: 2, cat: 'gel', name: 'Гель 2в1 спорт', tag: 'Мятная свежесть', price: '740 ₽', color: '#FF2D78', img: IMG_ORANGE, rating: 4.7, reviews: 96 },
-  { id: 3, cat: 'shampoo', name: 'Шампунь освежающий', tag: 'Аромат эвкалипта', price: '890 ₽', color: '#FF5A1F', img: IMG_ORANGE, rating: 4.8, reviews: 168 },
-  { id: 4, cat: 'shampoo', name: 'Шампунь контроль объёма', tag: 'Аромат одеколона · 500ml', price: '990 ₽', color: '#E11D2A', img: IMG_RED, rating: 5.0, reviews: 302 },
-  { id: 5, cat: 'parfum', name: 'Парфюм STEEL', tag: 'Дерево · кожа · перец', price: '2 490 ₽', color: '#E11D2A', img: IMG_RED, rating: 4.9, reviews: 87 },
-  { id: 6, cat: 'parfum', name: 'Парфюм NEON', tag: 'Цитрус · мускус', price: '2 290 ₽', color: '#FF2D78', img: IMG_PINK, rating: 4.8, reviews: 64 },
-  { id: 7, cat: 'cosmetics', name: 'Крем после бритья', tag: 'Успокаивающий уход', price: '690 ₽', color: '#FF5A1F', img: IMG_ORANGE, rating: 4.7, reviews: 143 },
-  { id: 8, cat: 'cosmetics', name: 'Воск для волос', tag: 'Матовая фиксация', price: '650 ₽', color: '#FF2D78', img: IMG_PINK, rating: 4.9, reviews: 211 },
+  { id: 1, cat: 'gel', name: 'Гель для душа', tag: 'Древесный аромат', price: '790 ₽', color: '#FF2D78', img: IMG_GEL_PINK, bg: BG_WOOD, rating: 4.9, reviews: 214 },
+  { id: 2, cat: 'gel', name: 'Гель 2в1 спорт', tag: 'Мятная свежесть', price: '740 ₽', color: '#FF5A1F', img: IMG_GEL_ORANGE, bg: BG_MINT, rating: 4.7, reviews: 96 },
+  { id: 3, cat: 'shampoo', name: 'Шампунь освежающий', tag: 'Аромат эвкалипта', price: '890 ₽', color: '#FF5A1F', img: IMG_GEL_ORANGE, bg: BG_EUCALYPTUS, rating: 4.8, reviews: 168 },
+  { id: 4, cat: 'shampoo', name: 'Шампунь контроль объёма', tag: 'Аромат одеколона · 500ml', price: '990 ₽', color: '#E11D2A', img: IMG_BARREL_ORANGE, bg: BG_AMBER, rating: 5.0, reviews: 302 },
+  { id: 5, cat: 'parfum', name: 'Парфюм STEEL', tag: 'Дерево · кожа · перец', price: '2 490 ₽', color: '#E11D2A', img: IMG_BARREL_ORANGE, bg: BG_LEATHER, rating: 4.9, reviews: 87 },
+  { id: 6, cat: 'parfum', name: 'Парфюм NEON', tag: 'Цитрус · мускус', price: '2 290 ₽', color: '#FF2D78', img: IMG_GEL_PINK, bg: BG_CITRUS, rating: 4.8, reviews: 64 },
+  { id: 7, cat: 'cosmetics', name: 'Крем после бритья', tag: 'Успокаивающий уход', price: '690 ₽', color: '#A78BFA', img: IMG_LOTION_PURPLE, bg: BG_CALM, rating: 4.7, reviews: 143 },
+  { id: 8, cat: 'cosmetics', name: 'Воск для волос', tag: 'Матовая фиксация', price: '650 ₽', color: '#FF2D78', img: IMG_LOTION_PURPLE, bg: BG_WAX, rating: 4.9, reviews: 211 },
 ];
 
 const REVIEWS = [
@@ -222,14 +232,16 @@ const Index = () => {
               className="group relative border border-border bg-card overflow-hidden transition-all hover:border-brand-pink animate-fade-in"
             >
               <div className="relative aspect-square overflow-hidden">
-                <div
-                  className="absolute inset-0 opacity-25 blur-3xl transition-opacity group-hover:opacity-40"
-                  style={{ backgroundColor: p.color }}
+                <img
+                  src={p.bg}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                 <img
                   src={p.img}
                   alt={p.name}
-                  className="relative w-full h-full object-contain p-6 transition-transform duration-500 group-hover:scale-110"
+                  className="relative w-full h-full object-contain p-8 drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
               <div className="p-6 border-t border-border">
