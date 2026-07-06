@@ -51,6 +51,8 @@ const PRODUCTS: {
   { id: 17, cat: 'gel', name: 'Гель для душа Cologne Refreshing', tag: 'Чистая свежесть · одеколон · 500ml', price: '—', color: '#E11D2A', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/a56144f8-0297-493c-bb9f-8beafc14eb8e.jpeg', bg: '', rating: 4.8, reviews: 0, fullPhoto: true },
   { id: 18, cat: 'gel', name: 'Oil-Control Shampoo', tag: 'Освежающий контроль жирности · 500ml', price: '—', color: '#EA580C', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/9ca08e82-9278-4f53-9ba5-c10c7839fa67.jpeg', bg: '', rating: 4.8, reviews: 0, fullPhoto: true },
   { id: 19, cat: 'gel', name: 'Увлажняющий лосьон для тела', tag: 'Высокая степень увлажнения · смягчение кожи', price: '—', color: '#A78BFA', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/b43a0478-e8b4-4ab7-8c3c-1caf241405da.jpeg', bg: '', rating: 4.9, reviews: 0, fullPhoto: true },
+  { id: 20, cat: 'cosmetics', name: 'Скраб для лица «發財»', tag: 'Отшелушивающий уход', price: '—', color: '#EC4899', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/169dff64-1007-46b2-ad27-caa270bf6a5b.jpeg', bg: '', rating: 4.8, reviews: 0, fullPhoto: true },
+  { id: 21, cat: 'home', name: 'Гель для стирки белья Lingerie', tag: 'Бережный уход за деликатным бельём', price: '—', color: '#C2707A', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/2e654b9e-8584-430d-970f-8d1a3d1ac660.png', bg: '', rating: 4.8, reviews: 0, fullPhoto: true },
 ];
 
 const REVIEWS = [
