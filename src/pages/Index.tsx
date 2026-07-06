@@ -31,7 +31,12 @@ const PRODUCTS: {
   rating: number;
   reviews: number;
   fullPhoto?: boolean;
-}[] = [];
+}[] = [
+  { id: 1, cat: 'shampoo', name: 'Шампунь «發財»', tag: 'Контроль жирности · аромат кедра', price: '—', color: '#E11D2A', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/d36f0d9e-e425-4ff8-8c93-1dc9eb222d30.jpeg', bg: '', rating: 4.9, reviews: 0, fullPhoto: true },
+  { id: 2, cat: 'shampoo', name: 'Шампунь Oil-Control', tag: 'Контроль жирности и глубокое очищение · 500ml', price: '—', color: '#FF5A1F', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/c6a35b19-83b0-4776-b330-c6aa6e4b5b9c.jpeg', bg: '', rating: 4.8, reviews: 0, fullPhoto: true },
+  { id: 3, cat: 'shampoo', name: 'Шампунь FLUFFY', tag: 'Для объёма и контроля жирности · 720ml', price: '—', color: '#22C55E', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/8d6ab0c8-a25b-41a8-a79c-50ff40b0cc67.jpeg', bg: '', rating: 4.8, reviews: 0, fullPhoto: true },
+  { id: 4, cat: 'shampoo', name: 'Шампунь Anti-Dandruff', tag: 'Против перхоти с эффектом разглаживания · 720ml', price: '—', color: '#E11D2A', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/e3424110-b96a-4fee-ba50-91dcf5f4b839.jpeg', bg: '', rating: 4.9, reviews: 0, fullPhoto: true },
+];
 
 const REVIEWS = [
   { name: 'Артём К.', rating: 5, text: 'Запах бомба, держится весь день. Упаковка — вообще топ, стоит на полке как арт-объект.', product: 'Шампунь контроль объёма' },
