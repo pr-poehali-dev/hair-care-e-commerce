@@ -36,6 +36,9 @@ const PRODUCTS: {
   { id: 2, cat: 'shampoo', name: 'Шампунь Oil-Control', tag: 'Контроль жирности и глубокое очищение · 500ml', price: '—', color: '#FF5A1F', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/c6a35b19-83b0-4776-b330-c6aa6e4b5b9c.jpeg', bg: '', rating: 4.8, reviews: 0, fullPhoto: true },
   { id: 3, cat: 'shampoo', name: 'Шампунь FLUFFY', tag: 'Для объёма и контроля жирности · 720ml', price: '—', color: '#22C55E', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/8d6ab0c8-a25b-41a8-a79c-50ff40b0cc67.jpeg', bg: '', rating: 4.8, reviews: 0, fullPhoto: true },
   { id: 4, cat: 'shampoo', name: 'Шампунь Anti-Dandruff', tag: 'Против перхоти с эффектом разглаживания · 720ml', price: '—', color: '#E11D2A', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/e3424110-b96a-4fee-ba50-91dcf5f4b839.jpeg', bg: '', rating: 4.9, reviews: 0, fullPhoto: true },
+  { id: 5, cat: 'shampoo', name: 'Шампунь Oil-Control Fluffy', tag: 'Контроль жирности и объём', price: '—', color: '#F5A9B8', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/2d0e6722-efea-4bb7-8328-b6326f185e7e.jpeg', bg: '', rating: 4.7, reviews: 0, fullPhoto: true },
+  { id: 6, cat: 'shampoo', name: 'Шампунь Perm & Dye Care', tag: 'Уход после окрашивания и химзавивки', price: '—', color: '#FDBA74', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/9b1217a9-2530-4dbb-88eb-b4940d51c14f.jpeg', bg: '', rating: 4.8, reviews: 0, fullPhoto: true },
+  { id: 7, cat: 'shampoo', name: 'Шампунь Oil Control & Fluffy', tag: 'Аромат одеколона · 500ml', price: '—', color: '#EA580C', img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/fd6b52a0-1c2d-428e-89ac-6cf05d46f34b.jpeg', bg: '', rating: 4.9, reviews: 0, fullPhoto: true },
 ];
 
 const REVIEWS = [
