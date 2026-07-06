@@ -4,10 +4,18 @@ import { Button } from '@/components/ui/button';
 
 const NAV = [
   { id: 'home', label: 'Главная' },
+  { id: 'promo', label: 'Акции' },
   { id: 'catalog', label: 'Каталог' },
   { id: 'about', label: 'О бренде' },
   { id: 'delivery', label: 'Доставка' },
   { id: 'contacts', label: 'Контакты' },
+];
+
+const PROMOS = [
+  { id: 1, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/90f6074e-eee9-4757-a12b-e561856a3f82.png', title: 'Шампунь + Гель + Средство от акне' },
+  { id: 2, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/72964f37-72f6-4976-bf73-17f46b647420.png', title: 'Шампунь + Гель для душа «發財»' },
+  { id: 3, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/1983d529-1064-4e8f-aaf7-2f83cb086486.png', title: 'Шампунь + Гель — выгода 20%' },
+  { id: 4, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/84cc2028-b59e-4702-9d15-1d8237839cd9.png', title: 'Шампунь + Гель для душа' },
 ];
 
 const CATEGORIES = [
@@ -201,6 +209,31 @@ const Index = () => {
               </span>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* PROMO */}
+      <section id="promo" className="container py-20 md:py-28">
+        <div className="flex items-end justify-between mb-12">
+          <div>
+            <p className="font-display uppercase tracking-widest text-brand-orange text-sm mb-2">Спецпредложения</p>
+            <h2 className="font-display font-bold uppercase text-4xl md:text-5xl">Акции</h2>
+          </div>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-6">
+          {PROMOS.map((promo, i) => (
+            <div
+              key={promo.id}
+              style={{ animationDelay: `${i * 0.05}s` }}
+              className="group relative overflow-hidden border border-border animate-fade-in"
+            >
+              <img
+                src={promo.img}
+                alt={promo.title}
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          ))}
         </div>
       </section>
 
