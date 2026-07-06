@@ -16,12 +16,17 @@ const CATEGORIES = [
   { id: 'shampoo', label: 'Шампуни', icon: 'SprayCan' },
   { id: 'parfum', label: 'Духи', icon: 'Wind' },
   { id: 'cosmetics', label: 'Косметика', icon: 'Sparkles' },
+  { id: 'home', label: 'Для дома', icon: 'Home' },
 ];
 
 const IMG_GEL_PINK = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/106b79e9-0d70-4873-8b19-fd689ed78c50.jpeg';
 const IMG_GEL_ORANGE = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/b5086509-c984-464c-879b-4dddc949031d.jpeg';
 const IMG_LOTION_PURPLE = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/0d31a8bf-29f0-458c-91ca-a6d5a4263fcc.jpeg';
 const IMG_BARREL_ORANGE = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/61001e69-ac55-4cc4-935d-44d6e2ce294b.jpeg';
+const IMG_LAUNDRY_PINK = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/3273bcd3-c0da-4d5e-95c2-1d05208b7e95.png';
+const IMG_CITRUS_BOX = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/0cc18d15-7de8-4b4c-8b82-380dd1516522.jpeg';
+const IMG_CITRUS_FRUIT = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/c91ded44-8dfe-4f61-ab0a-7aee4f5014c0.jpeg';
+const IMG_CURRANT_PINK = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/da3c4882-0998-4ba2-981f-3c3b435a45d4.jpeg';
 
 const BG_WOOD = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/125bcdad-7d0a-4adb-83fc-38bd632c192d.jpg';
 const BG_MINT = 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/b01b5ee1-0a48-4585-bce1-4335aea98507.jpg';
@@ -41,6 +46,10 @@ const PRODUCTS = [
   { id: 6, cat: 'parfum', name: 'Парфюм NEON', tag: 'Цитрус · мускус', price: '2 290 ₽', color: '#FF2D78', img: IMG_GEL_PINK, bg: BG_CITRUS, rating: 4.8, reviews: 64 },
   { id: 7, cat: 'cosmetics', name: 'Крем после бритья', tag: 'Успокаивающий уход', price: '690 ₽', color: '#A78BFA', img: IMG_LOTION_PURPLE, bg: BG_CALM, rating: 4.7, reviews: 143 },
   { id: 8, cat: 'cosmetics', name: 'Воск для волос', tag: 'Матовая фиксация', price: '650 ₽', color: '#FF2D78', img: IMG_LOTION_PURPLE, bg: BG_WAX, rating: 4.9, reviews: 211 },
+  { id: 9, cat: 'home', name: 'Гель для стирки белья', tag: 'Бережный уход за деликатным бельём', price: '1000 ₽', color: '#C2707A', img: IMG_LAUNDRY_PINK, bg: IMG_LAUNDRY_PINK, rating: 4.8, reviews: 57, fullPhoto: true },
+  { id: 10, cat: 'gel', name: 'Гель для душа STANDARD', tag: 'Цитрус и пачули · с коробкой', price: '1000 ₽', color: '#FF5A1F', img: IMG_CITRUS_BOX, bg: IMG_CITRUS_BOX, rating: 4.9, reviews: 132, fullPhoto: true },
+  { id: 11, cat: 'gel', name: 'Гель для душа FRESH', tag: 'Цитрус и пачули', price: '1000 ₽', color: '#FF5A1F', img: IMG_CITRUS_FRUIT, bg: IMG_CITRUS_FRUIT, rating: 4.9, reviews: 89, fullPhoto: true },
+  { id: 12, cat: 'gel', name: 'Гель для душа «發財»', tag: 'Красная смородина и дерево', price: '1000 ₽', color: '#FF2D78', img: IMG_CURRANT_PINK, bg: IMG_CURRANT_PINK, rating: 5.0, reviews: 118, fullPhoto: true },
 ];
 
 const REVIEWS = [
@@ -232,21 +241,31 @@ const Index = () => {
               className="group relative border border-border bg-card overflow-hidden transition-all hover:border-brand-pink animate-fade-in"
             >
               <div className="relative aspect-square overflow-hidden bg-black">
-                <img
-                  src={p.bg}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  style={{
-                    maskImage: 'radial-gradient(ellipse 30% 62% at 50% 55%, black 42%, transparent 74%)',
-                    WebkitMaskImage: 'radial-gradient(ellipse 30% 62% at 50% 55%, black 42%, transparent 74%)',
-                  }}
-                  className="relative w-full h-full object-cover scale-[1.9] transition-transform duration-500 group-hover:scale-[2.05]"
-                />
-                <div className="absolute inset-0 shadow-[inset_0_0_70px_30px_rgba(0,0,0,0.55)] pointer-events-none" />
+                {p.fullPhoto ? (
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                ) : (
+                  <>
+                    <img
+                      src={p.bg}
+                      alt=""
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <img
+                      src={p.img}
+                      alt={p.name}
+                      style={{
+                        maskImage: 'radial-gradient(ellipse 30% 62% at 50% 55%, black 42%, transparent 74%)',
+                        WebkitMaskImage: 'radial-gradient(ellipse 30% 62% at 50% 55%, black 42%, transparent 74%)',
+                      }}
+                      className="relative w-full h-full object-cover scale-[1.9] transition-transform duration-500 group-hover:scale-[2.05]"
+                    />
+                    <div className="absolute inset-0 shadow-[inset_0_0_70px_30px_rgba(0,0,0,0.55)] pointer-events-none" />
+                  </>
+                )}
               </div>
               <div className="p-6 border-t border-border">
                 <div className="flex items-center justify-between mb-2">
