@@ -17,6 +17,7 @@ const PROMOS = [
   { id: 3, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/1983d529-1064-4e8f-aaf7-2f83cb086486.png', title: 'Шампунь + Гель — выгода 20%' },
   { id: 4, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/84cc2028-b59e-4702-9d15-1d8237839cd9.png', title: 'Шампунь + Гель для душа' },
   { id: 5, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/34532287-4fc5-4c81-be01-a61537145255.png', title: 'Гель для душа + Шампунь — выгодный набор' },
+  { id: 6, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/338e02f5-3653-4d3a-a492-9ec222811add.png', title: 'Шампунь + Гель — выгода 20%' },
 ];
 
 const CATEGORIES = [
