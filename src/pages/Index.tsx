@@ -14,7 +14,6 @@ const NAV = [
 ];
 
 const PROMOS = [
-  { id: 1, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/90f6074e-eee9-4757-a12b-e561856a3f82.png', title: 'Шампунь + Гель + Средство от акне' },
   { id: 2, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/72964f37-72f6-4976-bf73-17f46b647420.png', title: 'Шампунь + Гель для душа «發財»' },
   { id: 3, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/1983d529-1064-4e8f-aaf7-2f83cb086486.png', title: 'Шампунь + Гель — выгода 20%' },
   { id: 4, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/84cc2028-b59e-4702-9d15-1d8237839cd9.png', title: 'Шампунь + Гель для душа' },
