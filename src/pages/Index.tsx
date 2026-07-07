@@ -95,11 +95,12 @@ const Logo = ({ className = '' }: { className?: string }) => (
 );
 
 const LogoMark = ({ size = 44 }: { size?: number }) => (
-  <div
-    className="relative flex items-center justify-center bg-foreground text-background font-display font-bold select-none shrink-0"
-    style={{ width: size, height: size, fontSize: size * 0.42 }}
-  >
-    <span className="relative z-10 tracking-tighter">NM</span>
+  <div className="relative shrink-0" style={{ width: size, height: size }}>
+    <img
+      src="https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/fa65314a-5e9d-496e-9054-e9da985ee35d.jpg"
+      alt="Martinet"
+      className="relative z-10 w-full h-full object-cover"
+    />
     <span className="absolute inset-0 border border-brand-pink" style={{ transform: 'translate(4px,4px)' }} />
   </div>
 );
