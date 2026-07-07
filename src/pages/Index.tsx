@@ -177,9 +177,6 @@ const Index = () => {
                 <br />
                 <span className="text-brand-pink">твоя</span> эпоха.
               </h1>
-              <p className="mt-6 max-w-md text-muted-foreground text-lg">
-                Брутальная мужская косметика в упаковке-бочке. Уход, который выглядит и работает как надо.
-              </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button
                   onClick={() => go('catalog')}
