@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { toast } from 'sonner';
+
+const VK_ORDER_URL = 'https://functions.poehali.dev/251d9a17-7453-4ac0-9748-418bca2e762f';
 
 const NAV = [
   { id: 'home', label: 'Главная' },
@@ -110,6 +114,9 @@ const Index = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cat, setCat] = useState('all');
   const [selectedProduct, setSelectedProduct] = useState<(typeof PRODUCTS)[number] | null>(null);
+  const [orderName, setOrderName] = useState('');
+  const [orderPhone, setOrderPhone] = useState('');
+  const [orderLoading, setOrderLoading] = useState(false);
 
   const filtered = cat === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.cat === cat);
 
@@ -117,6 +124,35 @@ const Index = () => {
     setActive(id);
     setMenuOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const submitOrder = async () => {
+    if (!orderName.trim() || !orderPhone.trim()) {
+      toast.error('Укажите имя и телефон');
+      return;
+    }
+    setOrderLoading(true);
+    try {
+      const res = await fetch(VK_ORDER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: orderName,
+          phone: orderPhone,
+          product: selectedProduct?.name || '',
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Ошибка отправки');
+      toast.success('Заказ отправлен! Мы свяжемся с вами в ВК.');
+      setOrderName('');
+      setOrderPhone('');
+      setSelectedProduct(null);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'Не удалось отправить заказ');
+    } finally {
+      setOrderLoading(false);
+    }
   };
 
   return (
@@ -321,10 +357,13 @@ const Index = () => {
                   <span className="font-display font-bold text-2xl">{p.price}</span>
                   <Button
                     size="sm"
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProduct(p);
+                    }}
                     className="bg-foreground text-background hover:bg-brand-pink hover:text-white rounded-none font-display uppercase tracking-wider"
                   >
-                    <Icon name="ShoppingBag" size={16} className="mr-1" /> В корзину
+                    <Icon name="ShoppingBag" size={16} className="mr-1" /> Заказать
                   </Button>
                 </div>
               </div>
@@ -508,10 +547,28 @@ const Index = () => {
                 </div>
                 <h3 className="font-display uppercase font-bold text-2xl mb-2">{selectedProduct.name}</h3>
                 <p className="text-muted-foreground mb-6">{selectedProduct.tag}</p>
-                <div className="mt-auto flex items-center justify-between">
-                  <span className="font-display font-bold text-3xl">{selectedProduct.price}</span>
-                  <Button className="bg-foreground text-background hover:bg-brand-pink hover:text-white rounded-none font-display uppercase tracking-wider">
-                    <Icon name="ShoppingBag" size={16} className="mr-1" /> В корзину
+
+                <div className="mt-auto space-y-3">
+                  <span className="font-display font-bold text-3xl block mb-2">{selectedProduct.price}</span>
+                  <Input
+                    placeholder="Ваше имя"
+                    value={orderName}
+                    onChange={(e) => setOrderName(e.target.value)}
+                    className="rounded-none border-border"
+                  />
+                  <Input
+                    placeholder="Телефон"
+                    value={orderPhone}
+                    onChange={(e) => setOrderPhone(e.target.value)}
+                    className="rounded-none border-border"
+                  />
+                  <Button
+                    onClick={submitOrder}
+                    disabled={orderLoading}
+                    className="w-full bg-foreground text-background hover:bg-brand-pink hover:text-white rounded-none font-display uppercase tracking-wider"
+                  >
+                    <Icon name="ShoppingBag" size={16} className="mr-1" />
+                    {orderLoading ? 'Отправляем...' : 'Заказать через ВК'}
                   </Button>
                 </div>
               </div>

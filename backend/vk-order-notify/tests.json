@@ -1,0 +1,23 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "POST без имени и телефона",
+      "method": "POST",
+      "path": "/",
+      "body": {"product": "Шампунь"},
+      "expectedStatus": 400
+    },
+    {
+      "name": "GET метод запрещён",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 405
+    }
+  ]
+}
