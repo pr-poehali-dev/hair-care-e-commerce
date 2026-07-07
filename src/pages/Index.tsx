@@ -20,6 +20,7 @@ const PROMOS = [
   { id: 4, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/84cc2028-b59e-4702-9d15-1d8237839cd9.png', title: 'Шампунь + Гель для душа' },
   { id: 5, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/34532287-4fc5-4c81-be01-a61537145255.png', title: 'Гель для душа + Шампунь — выгодный набор' },
   { id: 6, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/338e02f5-3653-4d3a-a492-9ec222811add.png', title: 'Шампунь + Гель — выгода 20%' },
+  { id: 7, img: 'https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/bucket/15a88531-be48-4f22-95d8-be5e8477881d.png', title: 'Скидка 30% при покупке трёх', badge: 'Скидка 30% при покупке трёх' },
 ];
 
 const CATEGORIES = [
@@ -233,6 +234,11 @@ const Index = () => {
                     alt={promo.title}
                     className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  {promo.badge && (
+                    <div className="absolute top-4 left-4 bg-brand-pink text-white font-display uppercase tracking-wider text-sm px-4 py-2 shadow-lg">
+                      {promo.badge}
+                    </div>
+                  )}
                 </div>
               </CarouselItem>
             ))}
