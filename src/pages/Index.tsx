@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const NAV = [
   { id: 'home', label: 'Главная' },
@@ -222,21 +223,23 @@ const Index = () => {
             <h2 className="font-display font-bold uppercase text-4xl md:text-5xl">Акции</h2>
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 gap-6">
-          {PROMOS.map((promo, i) => (
-            <div
-              key={promo.id}
-              style={{ animationDelay: `${i * 0.05}s` }}
-              className="group relative overflow-hidden border border-border animate-fade-in"
-            >
-              <img
-                src={promo.img}
-                alt={promo.title}
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          ))}
-        </div>
+        <Carousel opts={{ align: 'start', loop: true }} className="px-2">
+          <CarouselContent>
+            {PROMOS.map((promo) => (
+              <CarouselItem key={promo.id} className="sm:basis-1/2 lg:basis-1/2">
+                <div className="group relative overflow-hidden border border-border">
+                  <img
+                    src={promo.img}
+                    alt={promo.title}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
+        </Carousel>
       </section>
 
       {/* CATALOG */}
