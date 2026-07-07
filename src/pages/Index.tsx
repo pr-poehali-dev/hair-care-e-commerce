@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 const NAV = [
   { id: 'home', label: 'Главная' },
@@ -107,6 +108,7 @@ const Index = () => {
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
   const [cat, setCat] = useState('all');
+  const [selectedProduct, setSelectedProduct] = useState<(typeof PRODUCTS)[number] | null>(null);
 
   const filtered = cat === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.cat === cat);
 
@@ -275,7 +277,8 @@ const Index = () => {
             <article
               key={p.id}
               style={{ animationDelay: `${i * 0.05}s` }}
-              className="group relative border border-border bg-card overflow-hidden transition-all hover:border-brand-pink animate-fade-in"
+              onClick={() => setSelectedProduct(p)}
+              className="group relative border border-border bg-card overflow-hidden transition-all hover:border-brand-pink animate-fade-in cursor-pointer"
             >
               <div className="relative aspect-square overflow-hidden bg-black">
                 {p.fullPhoto ? (
@@ -315,6 +318,7 @@ const Index = () => {
                   <span className="font-display font-bold text-2xl">{p.price}</span>
                   <Button
                     size="sm"
+                    onClick={(e) => e.stopPropagation()}
                     className="bg-foreground text-background hover:bg-brand-pink hover:text-white rounded-none font-display uppercase tracking-wider"
                   >
                     <Icon name="ShoppingBag" size={16} className="mr-1" /> В корзину
@@ -479,6 +483,39 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* PRODUCT DETAILS MODAL */}
+      <Dialog open={!!selectedProduct} onOpenChange={(open) => !open && setSelectedProduct(null)}>
+        <DialogContent className="max-w-2xl p-0 overflow-hidden border-border rounded-none gap-0">
+          {selectedProduct && (
+            <div className="grid md:grid-cols-2">
+              <div className="relative aspect-square bg-black">
+                <img
+                  src={selectedProduct.img}
+                  alt={selectedProduct.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6 flex flex-col">
+                <div className="flex items-center justify-between mb-2">
+                  <Stars value={selectedProduct.rating} />
+                  <span className="text-xs text-muted-foreground">
+                    {selectedProduct.rating} · {selectedProduct.reviews} отзывов
+                  </span>
+                </div>
+                <h3 className="font-display uppercase font-bold text-2xl mb-2">{selectedProduct.name}</h3>
+                <p className="text-muted-foreground mb-6">{selectedProduct.tag}</p>
+                <div className="mt-auto flex items-center justify-between">
+                  <span className="font-display font-bold text-3xl">{selectedProduct.price}</span>
+                  <Button className="bg-foreground text-background hover:bg-brand-pink hover:text-white rounded-none font-display uppercase tracking-wider">
+                    <Icon name="ShoppingBag" size={16} className="mr-1" /> В корзину
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
