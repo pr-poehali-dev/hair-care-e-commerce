@@ -7,6 +7,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 
 const logoMark = '/logo-mark-hd.png';
+const logoFull = '/logo-word-hd.png';
 
 const VK_ORDER_URL = 'https://functions.poehali.dev/251d9a17-7453-4ac0-9748-418bca2e762f';
 
@@ -95,9 +96,7 @@ function Stars({ value, size = 16 }: { value: number; size?: number }) {
 }
 
 const Logo = ({ className = '' }: { className?: string }) => (
-  <span className={`font-display font-bold tracking-tight ${className}`}>
-    MARTIN<span className="text-brand-pink">Э</span>T
-  </span>
+  <img src={logoFull} alt="Martin" className={`object-contain ${className}`} />
 );
 
 const LogoMark = ({ size = 44 }: { size?: number }) => (
@@ -163,7 +162,7 @@ const Index = () => {
         <div className="container flex items-center justify-between h-16">
           <button onClick={() => go('home')} className="flex items-center gap-3">
             <LogoMark size={38} />
-            <Logo className="text-2xl hidden sm:inline" />
+            <Logo className="h-8 hidden sm:inline" />
           </button>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((n) => (
@@ -513,7 +512,7 @@ const Index = () => {
       {/* FOOTER */}
       <footer className="border-t border-border">
         <div className="container py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <Logo className="text-2xl" />
+          <Logo className="h-10" />
           <p className="text-sm text-muted-foreground uppercase tracking-wider font-display">
             © 2024 Martinet — Твой стиль, твоя эпоха
           </p>
