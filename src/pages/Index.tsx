@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { toast } from 'sonner';
+import logoMark from '@/assets/logo-mark.png';
 
 const VK_ORDER_URL = 'https://functions.poehali.dev/251d9a17-7453-4ac0-9748-418bca2e762f';
 
@@ -99,13 +100,12 @@ const Logo = ({ className = '' }: { className?: string }) => (
 );
 
 const LogoMark = ({ size = 44 }: { size?: number }) => (
-  <div className="relative shrink-0" style={{ width: size, height: size }}>
+  <div className="relative shrink-0 flex items-center justify-center" style={{ width: size, height: size }}>
     <img
-      src="https://cdn.poehali.dev/projects/a7665cf7-da94-42fb-866d-46edd863a964/files/fa65314a-5e9d-496e-9054-e9da985ee35d.jpg"
+      src={logoMark}
       alt="Martinet"
-      className="relative z-10 w-full h-full object-cover"
+      className="relative z-10 w-full h-full object-contain"
     />
-    <span className="absolute inset-0 border border-brand-pink" style={{ transform: 'translate(4px,4px)' }} />
   </div>
 );
 
