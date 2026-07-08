@@ -5,7 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { toast } from 'sonner';
-import logoMark from '@/assets/logo-mark.png';
+
+const logoMark = '/logo-mark-hd.png';
 
 const VK_ORDER_URL = 'https://functions.poehali.dev/251d9a17-7453-4ac0-9748-418bca2e762f';
 
